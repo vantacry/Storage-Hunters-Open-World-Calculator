@@ -2,27 +2,32 @@
 
 A simple mutation calculator for **Storage Hunters** that helps players calculate item values based on mutations, condition, and grades.
 
+🔗 **Use the calculator here:**
+[Storage Hunters Mutation Calculator](https://cortiex.github.io/Storage-Hunters-Calculator/)
+
 ## Features
 
-* Calculate final item value using different mutations
-* Supports grades and condition multipliers
+* Calculate final item values using mutations, condition, and grades
+* Supports mutation multipliers
+* Supports different item grades
 * Easy to use directly in your browser
-* Updated whenever new values or information become available
+* No installation required
 
 ## Updates & Changes
 
-This calculator may receive updates when:
+This calculator will be updated when:
 
 * New mutations are discovered
 * Mutation values change
 * New grades or mechanics are added
-* Errors or improvements need to be fixed
+* Bugs are found or improvements are needed
 
-If you notice something missing, incorrect, or have suggestions for improvements, feel free to contact me.
+If you notice incorrect values, missing mutations, or have suggestions, feel free to contact me.
 
 ## Contact
 
-Discord: **[vantacryy]**
-Roblox: **[Cortiex]**
+Roblox: [Cortiex](https://www.roblox.com/users/5483291501/profile)
+
+Discord: [vantacryy](https://discord.gg/hac3M5jw)
 
 Thank you for using the calculator and helping improve it!
