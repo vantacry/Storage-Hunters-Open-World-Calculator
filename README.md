@@ -28,6 +28,6 @@ If you notice incorrect values, missing mutations, or have suggestions, feel fre
 
 Roblox: [Cortiex](https://www.roblox.com/users/5483291501/profile)
 
-Discord: **[vantacryy]**
+Discord: **vantacryy**
 
 Thank you for using the calculator and helping improve it!
