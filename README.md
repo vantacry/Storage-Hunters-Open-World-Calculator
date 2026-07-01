@@ -3,7 +3,7 @@
 A simple mutation calculator for **Storage Hunters** that helps players calculate item values based on mutations, condition, and grades.
 
 🔗 **Use the calculator here:**
-[Storage Hunters Mutation Calculator](https://cortiex.github.io/Storage-Hunters-Calculator/)
+[Mutation Calculator](https://cortiex.github.io/Storage-Hunters-Calculator/)
 
 ## Features
 
