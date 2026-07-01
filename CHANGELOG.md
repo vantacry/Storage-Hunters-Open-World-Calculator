@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the **Storage Hunters Mutation Calculator** will be documented in this file.
+All notable changes to the **Mutation Calculator** will be documented in this file.
 
 ## [0.3.1] - 2026-07-01
 
@@ -15,7 +15,7 @@ All notable changes to the **Storage Hunters Mutation Calculator** will be docum
 
 ### Added
 
-* First public release of the Storage Hunters Mutation Calculator.
+* First public release of the Storage Hunters Open World Mutation Calculator.
 * Added support for base value, condition, grade, and mutation multipliers.
 * Added mutation selection and final value calculation.
 * Added a clean layout for sharing and using the calculator more easily.
