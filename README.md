@@ -13,7 +13,7 @@ A simple mutation calculator for **Storage Hunters** that helps players calculat
 * Easy to use directly in your browser
 * No installation required
 
-## Updates & Changes
+## Updates & Changelog
 
 This calculator will be updated when:
 
@@ -22,7 +22,12 @@ This calculator will be updated when:
 * New grades or mechanics are added
 * Bugs are found or improvements are needed
 
-If you notice incorrect values, missing mutations, or have suggestions, feel free to contact me.
+You can find all version changes here:
+[View Changelog](./CHANGELOG.md)
+
+## Feedback
+
+If you notice incorrect values, missing mutations, bugs, or have suggestions, feel free to contact me.
 
 ## Contact
 
