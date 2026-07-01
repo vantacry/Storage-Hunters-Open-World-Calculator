@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the **Mutation Calculator** will be documented in this file.
+All notable changes to the **Storage Hunters Open World Mutation Calculator** will be documented in this file.
 
 ## [0.3.1] - 2026-07-01
 
