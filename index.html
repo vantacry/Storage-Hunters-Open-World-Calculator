@@ -3,16 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Storage Hunters Mutation Calculator</title>
+<title>Storage Hunters: Open World Mutation Calculator</title>
 <style>
 /* Basic page setup and shared layout rules. */
 *{box-sizing:border-box;}
 body{background:radial-gradient(circle at top,#32303f 0,#181818 42%,#101010 100%);color:white;font-family:Arial,Helvetica,sans-serif;margin:0;min-height:100vh;padding:35px;}
 .container{max-width:950px;margin:auto;background:linear-gradient(145deg,rgba(43,43,43,.96),rgba(28,28,28,.98));padding:30px;border:1px solid rgba(255,255,255,.08);border-radius:24px;box-shadow:0 25px 70px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.06);}
-
-/* Header text at the top of the calculator. */
-h1{text-align:center;font-size:34px;margin:0;letter-spacing:.5px;text-shadow:0 0 24px rgba(255,255,255,.16);}
-.subtitle{text-align:center;color:#b9b9b9;margin-top:8px;margin-bottom:30px;}
 
 /* Input fields for base value, condition, and grade. */
 .inputs{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
@@ -55,6 +51,7 @@ input:focus,select:focus{outline:none;border-color:#f2d16b;box-shadow:0 0 0 3px 
 .Gem{background:linear-gradient(to right,#ff007f,#70011d,#ff5252);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .Chrome{background:linear-gradient(to right,#e0e0e0,#fff,#9e9e9e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .Hologram{color:#00ffff;text-shadow:0 0 8px #00ffff;}
+.Black{color:#050505;text-shadow:0 0 5px #888;}
 .Void{background:linear-gradient(to right,#000,#4b0082,#000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .Secret{background:linear-gradient(to right,#ff4b4b,#ee4b2b,#59110b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .Rainbow{background:linear-gradient(90deg,red,orange,yellow,green,blue,violet);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -94,12 +91,9 @@ button:hover{background:linear-gradient(135deg,#5a5a5a,#3d3d3d);transform:transl
 </head>
 <body>
 <div class="container">
-<!-- Main title and short description. -->
-<h1>Storage Hunters Mutation Calculator</h1>
-<div class="subtitle">Calculate item values with mutations, grades and conditions</div>
 <!-- User inputs: base price, item condition, and grade multiplier. -->
 <div class="inputs">
-<div><label>Base Value ($)</label><input id="base" type="number" min="0" placeholder="Enter base value"></div>
+<div><label>Value ($)</label><input id="base" type="number" min="0" placeholder="Enter value"></div>
 <div><label>Condition (%)</label><input id="condition" type="number" min="0" max="100" placeholder="Enter condition"></div>
 <div><label>Grade</label><select id="grade"><option value="1" data-label="No Grade">No Grade</option><option value="0.55" data-label="Replica">Replica (55%)</option><option value="0.85" data-label="★">★ (85%)</option><option value="1.35" data-label="★★">★★ (135%)</option><option value="2" data-label="★★★">★★★ (200%)</option></select></div>
 </div>
@@ -117,23 +111,23 @@ button:hover{background:linear-gradient(135deg,#5a5a5a,#3d3d3d);transform:transl
 <div class="actions"><button onclick="resetCalc()" type="button">Reset</button><button id="copyResult" type="button">📋 Copy Result</button></div>
 <div id="copyStatus" class="copy-status" aria-live="polite"></div>
 </div>
-<div class="footer">Created by Cortiex • v0.3.1</div>
+<div class="footer">Created by Cortiex • v0.3.2</div>
 </div>
 <script>
 // Mutation groups and their multipliers. A range has "min" and "max"; "null" means the value is unknown and the card is disabled.
-const groups={"Standard Mutations":{Dirty:.8,Silver:2,Gold:4,Corrupted:6,Diamond:8,Gem:10,Chrome:12,Hologram:15,Void:35,Secret:50,Rainbow:null,Tiny:2,Huge:2},"Event Mutations":{"Rain Event":{Wet:6,Shocked:6},"Moonlit Event":{Moonlit:1.5,Firefly:5}},"Washing Mutations":{Pure:{min:1.5,max:2},Spotless:3},"Time Capsule Mutations":{Cobwebbed:1.2,Antique:2,Ancient:5,Timeless:12}};
+const groups={"Standard Mutations":{Dirty:.8,Silver:2,Gold:4,Corrupted:6,Diamond:8,Gem:10,Chrome:12,Hologram:15,Black:"Unobtainable",Void:35,Secret:50,Rainbow:null,Tiny:2,Huge:2},"Event Mutations":{"Rain Event":{Wet:6,Shocked:6},"Moonlit Event":{Moonlit:1.5,Firefly:5}},"Washing Mutations":{Pure:1.875,Spotless:3.125},"Time Capsule Mutations":{Cobwebbed:1.2,Antique:2,Ancient:5,Timeless:12}};
 const area=document.getElementById("mutationArea");
 // Each mutation gets a matching highlight color for the selected-card glow effect.
-const mutationColors={Dirty:"#8b6b4a",Pure:"#ffffff",Silver:"#cfd8dc",Gold:"#ffd700",Corrupted:"#39ff14",Diamond:"#76c0e6",Gem:"#ff007f",Chrome:"#e0e0e0",Hologram:"#00ffff",Void:"#4b0082",Secret:"#ff4b4b",Rainbow:"#ff3bd4",Huge:"#ffffff",Tiny:"#ffffff",Moonlit:"#6dd5ed",Firefly:"#ffea00",Wet:"#00c6ff",Shocked:"#ffff00",Spotless:"#00e5ff",Cobwebbed:"#d6d6d6",Antique:"#cd853f",Ancient:"#8fbc8f",Timeless:"#e6c229"};
+const mutationColors={Dirty:"#8b6b4a",Pure:"#ffffff",Silver:"#cfd8dc",Gold:"#ffd700",Corrupted:"#39ff14",Diamond:"#76c0e6",Gem:"#ff007f",Chrome:"#e0e0e0",Hologram:"#00ffff",Black:"#111111",Void:"#4b0082",Secret:"#ff4b4b",Rainbow:"#ff3bd4",Huge:"#ffffff",Tiny:"#ffffff",Moonlit:"#6dd5ed",Firefly:"#ffea00",Wet:"#00c6ff",Shocked:"#ffff00",Spotless:"#00e5ff",Cobwebbed:"#d6d6d6",Antique:"#cd853f",Ancient:"#8fbc8f",Timeless:"#e6c229"};
 // Number formatters keep money and copied values readable.
 const formatter=new Intl.NumberFormat("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
 const wholeFormatter=new Intl.NumberFormat("en-US",{maximumFractionDigits:0});
 // Stores the newest calculation so the copy button can reuse it.
 let latestResult={base:0,condition:1,grade:1,mutations:[],multi:1,multiMax:1,total:1,totalMax:1,final:0,finalMax:0};
 // Turns a single multiplier or a range into readable text.
-function formatMutationValue(val){return val&&typeof val==="object"?`${val.min}x - ${val.max}x`:`${val}x`;}
+function formatMutationValue(val){return val&&typeof val==="object"?`${val.min}x - ${val.max}x`:typeof val==="string"?val:`${val}x`;}
 // Adds one mutation card to the given grid.
-function addMutationCard(box,m,val){let min=val&&typeof val==="object"?val.min:val;let max=val&&typeof val==="object"?val.max:val;box.innerHTML+=`<label class="mutation-card" style="--mutation-glow:${mutationColors[m] ?? '#f2d16b'}"><input type="checkbox" value="${min ?? 0}" data-min="${min ?? 0}" data-max="${max ?? 0}" data-name="${m}" ${val===null?"disabled":""} onchange="handleMutationChange(this)"><span class="mutation ${m}">${m} (${val===null?"?":formatMutationValue(val)})</span></label>`;}
+function addMutationCard(box,m,val){let disabled=val===null||typeof val==="string";let min=val&&typeof val==="object"?val.min:disabled?0:val;let max=val&&typeof val==="object"?val.max:disabled?0:val;box.innerHTML+=`<label class="mutation-card" style="--mutation-glow:${mutationColors[m] ?? '#f2d16b'}"><input type="checkbox" value="${min ?? 0}" data-min="${min ?? 0}" data-max="${max ?? 0}" data-name="${m}" ${disabled?"disabled":""} onchange="handleMutationChange(this)"><span class="mutation ${m}">${m} (${val===null?"?":formatMutationValue(val)})</span></label>`;}
 // Builds all mutation categories and cards from the data above.
 for(let group in groups){area.innerHTML+=`<div class="category">${group}</div>`;let items=groups[group];let hasSubgroups=Object.values(items).some(x=>x&&typeof x==="object"&&!("min" in x));if(hasSubgroups){for(let subgroup in items){let gridId=`${group}-${subgroup}`.replace(/\s+/g,"-");area.innerHTML+=`<div class="subcategory">${subgroup}</div><div class="grid" id="${gridId}"></div>`;let box=document.getElementById(gridId);for(let m in items[subgroup])addMutationCard(box,m,items[subgroup][m]);}}else{area.innerHTML+=`<div class="grid" id="${group}"></div>`;let box=document.getElementById(group);for(let m in items)addMutationCard(box,m,items[m]);}}
 // Keeps the condition input between 0 and 100.
