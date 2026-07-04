@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the **Storage Hunters Open World Mutation Calculator** will be documented in this file.
+All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
 ## [0.3.2] - 2026-07-04
 
@@ -11,6 +11,9 @@ All notable changes to the **Storage Hunters Open World Mutation Calculator** wi
 * Changed the **Spotless** mutation multiplier to `3.125x`.
 * Added the **Black** mutation as `Unobtainable`.
 * Renamed **Base Value ($)** to **Value ($)**.
+* Added links to the changelog version and GitHub icon in the footer.
+* Updated creator and repository links after the GitHub username change to **Vantacry**.
+* Updated the README with the new GitHub Pages calculator link and creator profile.
 
 ## [0.3.1] - 2026-07-01
 
