@@ -1,40 +1,38 @@
-Storage Hunters Open World Mutation Calculator
+# Storage Hunters Open World Mutation Calculator
 
-A simple mutation calculator for the game Storage Hunters Open World on Roblox that helps players calculate item values based on mutations, condition, and grades.
+A simple mutation calculator for the Game **Storage Hunters Open World** on Roblox that helps players calculate item values based on mutations, condition, and grades.
 
-🔗 Use the Calculator
+**Use the calculator here:**
+[Mutation Calculator](https://vantacry.github.io/Storage-Hunters-Open-World-Calculator/)
 
-➜ Open Mutation Calculator
+## Features
 
-Features
+* Calculate final item values using mutations, condition, and grades
+* Supports mutation multipliers
+* Supports different item grades
+* Easy to use directly in your browser
+* No installation required
 
-› Calculate final item values using mutations, condition, and grades
-› Supports mutation multipliers
-› Supports different item grades
-› Easy to use directly in your browser
-› No installation required
-
-Updates & Changelog
+## Updates & Changelog
 
 This calculator will be updated when:
 
-› New mutations are discovered
-› Mutation values change
-› New grades or mechanics are added
-› Bugs are found or improvements are needed
+* New mutations are discovered
+* Mutation values change
+* New grades or mechanics are added
+* Bugs are found or improvements are needed
 
 You can find all version changes here:
+[View Changelog](./CHANGELOG.md)
 
-➜ View Changelog
-
-Feedback
+## Feedback
 
 If you notice incorrect values, missing mutations, bugs, or have suggestions, feel free to contact me.
 
-🔗 Contact
+## Contact
 
-All my links can be found here:
+[Vantacry](https://guns.lol/vantacry)
 
-➜ Vantacry
+
 
 Thank you for using the calculator and helping improve it!
