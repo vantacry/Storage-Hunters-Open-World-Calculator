@@ -41,7 +41,7 @@ If you notice incorrect values, missing mutations, bugs, or have suggestions, fe
 
 ---
 
-## 🔗 Contact
+## Contact
 
 All my links can be found here:
 
