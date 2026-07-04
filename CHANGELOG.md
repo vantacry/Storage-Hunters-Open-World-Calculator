@@ -2,6 +2,18 @@
 
 All notable changes to the **Storage Hunters Open World Mutation Calculator** will be documented in this file.
 
+## [0.3.2] - 2026-07-04
+
+### Changed
+
+* Updated the mutation list to match the current multiplier values.
+* Changed the **Pure** mutation multiplier to `1.875x`.
+* Changed the **Spotless** mutation multiplier to `3.125x`.
+* Added the **Black** mutation as `Unobtainable`.
+* Renamed **Base Value ($)** to **Value ($)**.
+* Removed the visible title and subtitle from the calculator page.
+* Updated the browser title to **Storage Hunters: Open World Mutation Calculator**.
+
 ## [0.3.1] - 2026-07-01
 
 ### Changed
