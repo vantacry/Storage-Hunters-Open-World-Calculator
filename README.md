@@ -1,4 +1,4 @@
-# Storage Hunters Open World Mutation Calculator
+# Storage Hunters: Open World Mutation Calculator
 
 A simple mutation calculator for the Game **Storage Hunters Open World** on Roblox that helps players calculate item values based on mutations, condition, and grades.
 
