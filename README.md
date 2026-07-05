@@ -7,11 +7,25 @@ A simple mutation calculator for the Game **Storage Hunters Open World** on Robl
 
 ## Features
 
-* Calculate final item values using mutations, condition, and grades
-* Supports mutation multipliers
-* Supports different item grades
-* Easy to use directly in your browser
-* No installation required
+* Calculate final item values using custom values, item values, mutations, condition, and grades
+* Live item data from the Storage Hunters Wiki
+* Searchable item index with area filters
+* Select items directly from the index to load their value into the calculator
+* Supports mutation multipliers, including active mutation display and sorted mutation order
+* Dirty mutation is always listed first when active, followed by highest to lowest multiplier
+* Copy Result creates a styled image with the selected item, final value, stats, and mutations
+* Unknown item entries stay visible in the index but cannot be selected
+* Works directly in the browser with no installation required
+
+## Item Data
+
+The calculator loads item data directly from the Storage Hunters Wiki module:
+
+[Module:ItemData](https://storagehunters.fandom.com/wiki/Module:ItemData)
+
+## Current Version
+
+Current release: **v0.3.3**
 
 ## Updates & Changelog
 
@@ -19,6 +33,7 @@ This calculator will be updated when:
 
 * New mutations are discovered
 * Mutation values change
+* Item data changes on the Wiki
 * New grades or mechanics are added
 * Bugs are found or improvements are needed
 
