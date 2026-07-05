@@ -11,10 +11,7 @@ A simple mutation calculator for the Game **Storage Hunters Open World** on Robl
 * Live item data from the Storage Hunters Wiki
 * Searchable item index with area filters
 * Select items directly from the index to load their value into the calculator
-* Supports mutation multipliers, including active mutation display and sorted mutation order
-* Dirty mutation is always listed first when active, followed by highest to lowest multiplier
 * Copy Result creates a styled image with the selected item, final value, stats, and mutations
-* Unknown item entries stay visible in the index but cannot be selected
 * Works directly in the browser with no installation required
 
 ## Item Data
