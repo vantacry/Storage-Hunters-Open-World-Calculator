@@ -2,6 +2,27 @@
 
 All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
+## [0.3.3] - 2026-07-05
+
+### Added
+
+* Added a live Wiki-powered item index that loads item data directly from [`Module:ItemData`](https://storagehunters.fandom.com/wiki/Module:ItemData).
+* Added item search by item name and area filters for Junk Yard, Back Alley, Farmyard, Shipyard, Cargo, Lost, and Exclusive.
+* Added selectable item cards that automatically load the item base value into the calculator.
+* Added active mutation display below the mutation multiplier in the result panel.
+* Added styled image export for **Copy Result** with selected item, value stats, and active mutations.
+
+### Changed
+
+* Updated Copy Result output to use a cleaner layout.
+* Updated active mutation sorting so **Dirty** is always shown first, followed by highest to lowest multiplier like Ingame.
+* Renamed the manual value input and result image stat label to **Custom Value** where appropriate.
+* Improved typography, spacing, sticky index behavior, and overall visual consistency.
+
+### Fixed
+
+* Improved visibility for dark mutation styles such as Moonlit, Void, Dirty, Corrupted, and Black.
+
 ## [0.3.2] - 2026-07-04
 
 ### Changed
