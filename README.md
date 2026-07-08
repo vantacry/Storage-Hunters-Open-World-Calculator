@@ -22,7 +22,7 @@ The calculator loads item data directly from the Storage Hunters Wiki module:
 
 ## Current Version
 
-Current release: **v0.3.3**
+Current release: **v0.3.4**
 
 ## Updates & Changelog
 

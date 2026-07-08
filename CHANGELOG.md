@@ -2,6 +2,18 @@
 
 All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
+## [0.3.4] - 2026-07-08
+
+### Added
+
+* Added **Low Items Markup** factor display in the result panel.
+
+### Changed
+
+* Updated calculation logic to support the low items markup.
+* Updated the rounding to display identical values to ROBLOX/LUA
+* Cleaned up the code a bit
+
 ## [0.3.3] - 2026-07-05
 
 ### Added
