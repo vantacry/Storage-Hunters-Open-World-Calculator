@@ -13,6 +13,7 @@ All notable changes to the **Storage Hunters: Open World Mutation Calculator** w
 
 ### Changed
 
+* Changed the **Wet** mutation multiplier to `1.4x`.
 * Updated the calculation logic to support the Low Item Markup system.
 * Updated condition scaling so the effective max value chooses between the low-value condition curve and the normal `60%` to `100%` curve at `$1,000`.
 * Updated value rounding to better match **ROBLOX/Luau** number behavior.
