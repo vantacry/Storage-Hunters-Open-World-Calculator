@@ -17,7 +17,7 @@ const groups = {
     Huge: 2,
   },
   "Event Mutations": {
-    "Rain Event": { Wet: 6, Shocked: 6 },
+    "Rain Event": { Wet: 1.4, Shocked: 6 },
     "Moonlit Event": { Moonlit: 1.5, Firefly: 5 },
   },
   "Washing Mutations": { Pure: 1.875, Spotless: 3.125 },
