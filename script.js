@@ -236,25 +236,47 @@ function calc() {
   let multi = mutations.reduce((total, item) => total * item.value, 1);
   let multiMax = mutations.reduce((total, item) => total * item.max, 1);
 
-  // 1. Calculate the Mutated Base Value FIRST
-  let mutatedBase = base * multi;
-  let mutatedBaseMax = base * multiMax;
+  // 1. Apply the low value markup factor (boosts lower value items, but trophies have no markup)
+  let isTrophy = selectedItem && (selectedItem.rarity === "Gavel Trophy" || selectedItem.name.includes("Trophy"));
+  let markup;
+  if (isTrophy) {
+    markup = 1;
+  } else if (base <= 1) {
+    markup = 25;
+  } else if (base <= 100) {
+    markup = 25 / Math.pow(base, 1 - Math.log10(2));
+  } else {
+    markup = 1;
+  }
+  let effBase = base * markup;
 
-  // 2. Calculate the dynamic floor using the MUTATED values
+  // 2. Calculate the Mutated Base Value using the marked up base value
+  let mutatedBase = effBase * multi;
+  let mutatedBaseMax = effBase * multiMax;
+
+  // 3. Calculate the dynamic floor using the MUTATED values
   let floor = mutatedBase >= 1000 ? 0.6 : 0.25 + 0.00035 * mutatedBase;
   let floorMax = mutatedBaseMax >= 1000 ? 0.6 : 0.25 + 0.00035 * mutatedBaseMax;
 
-  // 3. Calculate final condition factor based on those floors
+  // 4. Calculate final condition factor based on those floors
   let condition = floor + (1 - floor) * (conditionPercent / 100);
   let conditionMax = floorMax + (1 - floorMax) * (conditionPercent / 100);
 
-  // 4. Calculate total multipliers
-  let total = multi * condition * grade;
-  let totalMax = multiMax * conditionMax * grade;
+  // 5. Calculate total multipliers
+  let total = markup * multi * condition * grade;
+  let totalMax = markup * multiMax * conditionMax * grade;
 
-  // 5. Calculate final display values
+  // Round total multipliers to 4 decimal places to match game formatting/math (fixes issues with .xx5 values rounding differently in JS vs Lua)
+  total = Math.round(total * 10000) / 10000;
+  totalMax = Math.round(totalMax * 10000) / 10000;
+
+  // 6. Calculate final display values
   let final = base * total;
   let finalMax = base * totalMax;
+
+  // Subtract epsilon to align rounding of .xx5 values with game
+  if (final > 0) final -= 1e-9;
+  if (finalMax > 0) finalMax -= 1e-9;
 
   // Save state for the canvas copy function
   latestResult = {
@@ -279,6 +301,10 @@ function calc() {
     multi === multiMax
       ? multi.toLocaleString() + "x"
       : multi.toLocaleString() + "x - " + multiMax.toLocaleString() + "x";
+  document.getElementById("markupOut").innerText =
+    markup === 25 || markup === 1
+      ? markup + "x"
+      : markup.toFixed(3) + "x";
   cond.innerText =
     condition === conditionMax
       ? condition.toFixed(3) + "x"
