@@ -12,7 +12,7 @@ const groups = {
     Black: "Unobtainable",
     Void: 35,
     Secret: 50,
-    Rainbow: null,
+    Rainbow: 100,
     Tiny: 2,
     Huge: 2,
   },
