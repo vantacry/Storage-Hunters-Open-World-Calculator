@@ -2,24 +2,27 @@
 
 All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
-## [0.3.5] - 2026-07-08
-
-### Added
-
-* Fixed low item markup being added on all calculations.
-
-
 ## [0.3.4] - 2026-07-08
 
 ### Added
 
-* Added **Low Items Markup** factor display in the result panel.
+* Added **Low Item Markup** support to the calculator.
+* Added a **Low Item Markup** factor display in the result panel.
+* Added [**FieryWolfLevi**](https://github.com/FieryWolfLevi) as an official project contributor.
+* Documented the value calculation formula and project structure in the README.
 
 ### Changed
 
-* Updated calculation logic to support the low items markup.
-* Updated the rounding to display identical values to ROBLOX/LUA
-* Cleaned up the code a bit
+* Updated the calculation logic to support the Low Item Markup system.
+* Updated condition scaling so the effective max value chooses between the low-value condition curve and the normal `60%` to `100%` curve at `$1,000`.
+* Updated value rounding to better match **ROBLOX/Luau** number behavior.
+* Split the single-file calculator into separate root-level HTML, CSS, and JavaScript files for easier maintenance.
+* Cleaned up parts of the code for better readability and maintainability.
+
+### Fixed
+
+* Fixed an issue where Low Item Markup was incorrectly being applied to all calculations.
+
 
 ## [0.3.3] - 2026-07-05
 
@@ -34,7 +37,7 @@ All notable changes to the **Storage Hunters: Open World Mutation Calculator** w
 ### Changed
 
 * Updated Copy Result output to use a cleaner layout.
-* Updated active mutation sorting so **Dirty** is always shown first, followed by highest to lowest multiplier like Ingame.
+* Updated active mutation sorting so **Dirty** is always shown first, followed by highest to lowest multiplier like ingame.
 * Renamed the manual value input and result image stat label to **Custom Value** where appropriate.
 * Improved typography, spacing, sticky index behavior, and overall visual consistency.
 
@@ -68,7 +71,7 @@ All notable changes to the **Storage Hunters: Open World Mutation Calculator** w
 
 ### Added
 
-* First public release of the Storage Hunters Open World Mutation Calculator.
+* First public release of the Storage Hunters: Open World Mutation Calculator.
 * Added support for base value, condition, grade, and mutation multipliers.
 * Added mutation selection and final value calculation.
 * Added a clean layout for sharing and using the calculator more easily.
