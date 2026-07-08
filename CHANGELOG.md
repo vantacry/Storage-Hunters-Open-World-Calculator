@@ -2,6 +2,13 @@
 
 All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
+## [0.3.5] - 2026-07-08
+
+### Added
+
+* Fixed low item markup being added on all calculations.
+
+
 ## [0.3.4] - 2026-07-08
 
 ### Added

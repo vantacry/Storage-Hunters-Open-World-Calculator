@@ -239,7 +239,7 @@ function calc() {
   // 1. Apply the low value markup factor (boosts lower value items, but trophies have no markup)
   let isTrophy = selectedItem && (selectedItem.rarity === "Gavel Trophy" || selectedItem.name.includes("Trophy"));
   let markup;
-  if (isTrophy) {
+  if (isTrophy || mutations.length > 0) {
     markup = 1;
   } else if (base <= 1) {
     markup = 25;
