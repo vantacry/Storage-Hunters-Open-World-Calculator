@@ -53,7 +53,7 @@ Feel free to reach out or open an **[Issue](https://github.com/vantacry/Storage-
 ## Credits
 
 * **Creator:** [Vantacry](https://guns.lol/vantacry)
-* **Contributor:** [FieryWolfLevi](https://github.com/FieryWolfLevi) — Storage Hunters Wiki founder
+* **Contributor:** [FieryWolfLevi](https://github.com/FieryWolfLevi) — `Storage Hunters: Open World Wiki founder`
   
 * **Wiki:** [Storage Hunters: Open World Wiki](https://storagehunters.fandom.com/wiki/Storage_Hunters:_Open_World_(ROBLOX)_Wiki)
 * **Game:** [Storage Hunters: Open World Wiki](https://www.roblox.com/games/98800969324557/Storage-Hunters-Open-World)
