@@ -2,6 +2,24 @@
 
 All notable changes to the **Storage Hunters: Open World Mutation Calculator** will be documented in this file.
 
+## [0.3.5] - 2026-07-12
+
+### Added
+
+- Added **favicon** (`favicon.ico`) to both HTML pages.
+- Added **Mutation Finder** (`mutationCalculator.html`) — a reverse calculator that determines an unknown mutation's multiplier given a sell price and a set of known mutations.
+- Added dynamic fetching of all mutations from the Storage Hunters Wiki (`Module:MutationData`).
+- Added dynamic auto-generation of all mutation categories, colors, and styled card representations.
+- Added a new visible main page title styled with the **Roboto Slab** font.
+- Hidden the **Custom Value** input behind an **"Unknown/Custom Item"** toggle.
+
+### Changed
+
+- Organized project files by moving stylesheets to `/css/` and JavaScript files to `/js/`, aswell as split up the scripts for usage in new .html page.
+- Updated the site theme background color to `#121212`, primary color to `#ffc500`, and panel backgrounds to `#1e222a` to match the wiki.
+- Relocated **Condition (%)**, **Grade**, and **Unknown/Custom Item** controls underneath the item index.
+- Removed the **"Wiki live"** status badge and replaced with a loading spinner.
+
 ## [0.3.4] - 2026-07-08
 
 ### Added

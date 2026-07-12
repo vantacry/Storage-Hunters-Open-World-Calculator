@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Storage Hunters: Open World Mutation Calculator</title>
+    <title>Storage Hunters: Mutation Finder</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
@@ -24,21 +24,22 @@
 
     <div class="container">
       <header class="wiki-banner">
-        <h1 class="wiki-title">
-          Storage Hunters: Open World Mutation Calculator
-        </h1>
+        <h1 class="wiki-title">Mutation Finder</h1>
         <p class="wiki-subtitle">
-          An unofficial community calculator for item values, mutations,
-          condition scaling, and grade multipliers.
+          Reverse-calculate an unknown mutation multiplier from a sell price.
+          Select your known mutations, enter the sell price, and the calculator
+          will determine the unknown mutation's multiplier.
         </p>
       </header>
 
       <div class="tab-nav">
-        <a href="index.html" class="tab-link active">Value Calculator</a>
-        <a href="mutationCalculator.html" class="tab-link">Mutation Finder</a>
+        <a href="index.html" class="tab-link">Value Calculator</a>
+        <a href="mutationCalculator.html" class="tab-link active"
+          >Mutation Finder</a
+        >
       </div>
 
-      <!-- Searchable item index loaded live from the Wiki. Clicking an item copies its base value into the calculator. -->
+      <!-- Searchable item index loaded live from the Wiki. -->
       <section class="item-index" aria-labelledby="itemIndexTitle">
         <div class="index-controls">
           <div class="index-head">
@@ -64,7 +65,7 @@
         </div>
       </section>
 
-      <!-- User inputs: item condition, grade multiplier, and optional custom value. -->
+      <!-- User inputs: condition, grade, custom value, and sell price -->
       <div class="inputs">
         <div>
           <label>Condition (%)</label
@@ -102,34 +103,38 @@
         </div>
       </div>
 
+      <!-- Sell price input -->
+      <div class="inputs" style="margin-top: 15px">
+        <div style="grid-column: 1 / -1">
+          <label>Sell Price ($)</label
+          ><input
+            id="sellPrice"
+            type="number"
+            min="0"
+            placeholder="Enter sell price ($)"
+          />
+        </div>
+      </div>
+
       <!-- Mutation cards are inserted here automatically by JavaScript. -->
       <div id="mutationArea"></div>
-      <!-- Calculation output and quick actions. -->
+
+      <!-- Reverse calculation output -->
       <div class="result">
         <div>
           Selected Item: <b id="selectedItemOut">Unknown/Custom Item</b>
         </div>
-        <div class="multiplier-result-row">
-          <span>Mutation Multiplier:</span
-          ><span class="result-value-stack"
-            ><b id="muti">1x</b
-            ><span
-              id="activeMultipliers"
-              class="active-multipliers"
-              aria-live="polite"
-            ></span
-          ></span>
-        </div>
+        <div>Known Mutations: <b id="knownMutationsOut">None</b></div>
+        <div>Known Multiplier: <b id="knownMultiOut">1x</b></div>
         <div>Low Items Markup: <b id="markupOut">1x</b></div>
         <div>Condition Factor: <b id="cond">1x</b></div>
         <div>Grade Factor: <b id="gradeOut">1x</b></div>
-        <div>Total Multiplier: <b id="total">1x</b></div>
-        <div class="big">Final Value:<br /><b id="value">$0.00</b></div>
-        <div class="actions">
-          <button onclick="resetCalc()" type="button">Reset</button
-          ><button id="copyResult" type="button">Copy Result</button>
+        <div class="big" style="color: var(--green)">
+          Unknown Mutation Multiplier:<br /><b id="unknownMulti">?</b>
         </div>
-        <div id="copyStatus" class="copy-status" aria-live="polite"></div>
+        <div class="actions" style="grid-template-columns: 1fr">
+          <button onclick="resetCalc()" type="button">Reset</button>
+        </div>
       </div>
       <div class="footer">
         Created by
@@ -168,6 +173,6 @@
       </div>
     </div>
     <script src="js/shared.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/reverseCalc.js"></script>
   </body>
 </html>
