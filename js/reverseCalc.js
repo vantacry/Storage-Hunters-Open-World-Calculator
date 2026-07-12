@@ -17,7 +17,8 @@ function handleMutationChange(input) {
 // method can evaluate it at arbitrary unknown multiplier values.
 // =============================================================================
 
-function computeSellPrice(base, conditionPercent, grade, knownMulti, unknownMulti, isTrophy) {
+
+function computeSellPrice(base, conditionPercent, grade, knownMulti, unknownMulti, isTrophy, smooth = false) {
   // 1. Markup — always applied since there is at least the unknown mutation
   let totalMulti = knownMulti * unknownMulti;
   let markup;
@@ -42,8 +43,11 @@ function computeSellPrice(base, conditionPercent, grade, knownMulti, unknownMult
   // 4. Condition factor
   let condition = floor + (1 - floor) * (conditionPercent / 100);
 
-  // 5. Total multiplier (rounded like the game)
-  let total = Math.round(markup * totalMulti * condition * grade * 10000) / 10000;
+  // 5. Total multiplier
+  let total = markup * totalMulti * condition * grade;
+  if (!smooth) {
+    total = Math.round(total * 10000) / 10000;
+  }
 
   // 6. Final value
   let final = base * total;
@@ -98,12 +102,12 @@ function reverseCalc() {
     let u = 1.0;
     const maxIter = 100;
     for (let i = 0; i < maxIter; i++) {
-      const result = computeSellPrice(base, conditionPercent, grade, knownM, u, isTrophy);
+      const result = computeSellPrice(base, conditionPercent, grade, knownM, u, isTrophy, true);
       const f = result.final - sellPrice;
       if (Math.abs(f) < 0.005) break;
 
       const du = Math.max(u * 0.0001, 1e-8);
-      const resultPlus = computeSellPrice(base, conditionPercent, grade, knownM, u + du, isTrophy);
+      const resultPlus = computeSellPrice(base, conditionPercent, grade, knownM, u + du, isTrophy, true);
       const fPrime = (resultPlus.final - result.final) / du;
       if (Math.abs(fPrime) < 1e-12) break;
 
